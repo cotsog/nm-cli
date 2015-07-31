@@ -9,4 +9,7 @@ new Nightmare()
     }, function(breadcrumb) {
         console.log(breadcrumb);
     })
-    .run(done);
+    .run(function(err, nightmare) {
+        if (err) return console.log(err);
+        console.log('Done!');
+    });
