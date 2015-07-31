@@ -1,13 +1,13 @@
 var Nightmare = require('nightmare');
 new Nightmare()
     .goto('http://yahoo.com')
-    .type('input[title="Search"]', 'github nightmare')
-    .click('.searchsubmit')
-    .wait('.url.breadcrumb')
+    .type('input[id="UHSearchBox"]', 'github nightmare')
+    .click('#UHSearchWeb')
+    .wait('html')
     .evaluate(function() {
-        return document.querySelector('.url.breadcrumb').innerText;
-    }, function(breadcrumb) {
-        console.log(breadcrumb);
+        return document.querySelector('html').innerHTML;
+    }, function(html) {
+        console.log(html);
     })
     .run(function(err, nightmare) {
         if (err) return console.log(err);
